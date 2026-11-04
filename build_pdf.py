@@ -1,4 +1,6 @@
-"""Build the submission PDF: cover page, main text (at most three pages), references, appendix.
+"""Build the submission PDF: cover page, main text (at most three pages), references.
+
+The appendix is not part of the upload. It lives in the public repository cited as Jensen (2026).
 
 Adapted from the LaTeX backend of Assignment 1 (01-coupon-impact/src/coupon_analysis/latex.py).
 Understood Markdown subset: ## and ### headings, paragraphs, **bold**, *italic*, $...$, $$...$$, pipe tables
@@ -171,15 +173,17 @@ def to_tex(text_md: str, appendix_md: str) -> str:
         return re.sub(r"(?<=\d)-(?=\d)", "–", text) + sep + doi
     tex += [r"\linespread{1.0}\selectfont"]
     tex += [inline(apa(r)) + r"\par" for r in re.split(r"\n\s*\n", refs) if r.strip()]
-    tex += [r"\endgroup", r"\newpage"]
-    tex += blocks_to_tex(appendix_md)
+    tex += [r"\endgroup"]
+    if appendix_md.strip():
+        tex += [r"\newpage"]
+        tex += blocks_to_tex(appendix_md)
     tex.append(r"\end{document}")
     return "\n\n".join(tex) + "\n"
 
 
 def main() -> None:
     tex_path = HERE / f"{PDF_NAME}.tex"
-    tex_path.write_text(to_tex((HERE / "text.md").read_text(), (HERE / "appendix.md").read_text()), encoding="utf-8")
+    tex_path.write_text(to_tex((HERE / "text.md").read_text(), ""), encoding="utf-8")
     tectonic = shutil.which("tectonic") or str(Path.home() / ".local" / "bin" / "tectonic")
     proc = subprocess.run([tectonic, tex_path.name], cwd=HERE, capture_output=True, text=True, timeout=300)
     if proc.returncode != 0:

@@ -9,6 +9,8 @@ prospect accounts are randomized 1:3 between an autonomous, disclosed AI agent (
 business development associate (BDA) who works as usual. The primary outcome is a booked meeting within 45 days of
 the account's batch date.
 
+The submitted PDF contains the proposal and the references. Tables A1 to C1 and the timeline live in this repository, not in the PDF.
+
 **No experiment has been run.** The simulation contains no estimates of the agent's effect. It only checks that the
 planned estimator keeps its size, covers the true effect and reaches the power the analytical calculation promises.
 
