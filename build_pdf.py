@@ -20,10 +20,13 @@ from pypdf import PdfReader
 HERE = Path(__file__).parent
 PDF_NAME = "2226237U_simon_jensen"          # filename required by the assignment: studentid_firstname_lastname.pdf
 MAX_PAGES = 3
-LINE_SPREAD = "1.15"                         # more air than single spacing ("preferably double-spaced"), still three pages
+LINE_SPREAD = "1.15"
+MARGIN = "2.5cm"                             # layout of the Current Issues report (01-news-analysis)
+PARSKIP = "5pt"
+SECSKIP = "10pt"                         # more air than single spacing ("preferably double-spaced"), still three pages
 
 PREAMBLE = r"""\documentclass[12pt,a4paper]{article}
-\usepackage[hmargin=2.0cm,vmargin=1.8cm]{geometry}
+\usepackage[a4paper,margin=%(margin)s]{geometry}
 \usepackage{newtxtext,newtxmath}
 \usepackage{amsmath}
 \usepackage{booktabs,microtype,xurl}
@@ -31,7 +34,7 @@ PREAMBLE = r"""\documentclass[12pt,a4paper]{article}
 \usepackage[colorlinks=true,allcolors=black,pdftitle={%(title)s},pdfauthor={Simon Jensen},pdfsubject={Final Report, Topics in Econometrics B}]{hyperref}
 \urlstyle{same}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0.4em plus 0.1em}
+\setlength{\parskip}{%(parskip)s plus 1pt}
 \setlength{\abovedisplayskip}{4pt plus 2pt}
 \setlength{\belowdisplayskip}{4pt plus 2pt}
 \pagestyle{plain}
@@ -41,7 +44,7 @@ PREAMBLE = r"""\documentclass[12pt,a4paper]{article}
 \emergencystretch=3em
 \relpenalty=10000
 \binoppenalty=10000
-\newcommand{\sect}[1]{\par\vspace{0.3em}{\large\bfseries #1}\par\nopagebreak\vspace{0.05em}}
+\newcommand{\sect}[1]{\par\vspace{%(secskip)s}{\large\bfseries #1}\par\nopagebreak\vspace{2pt}}
 \newcommand{\subsect}[1]{\par\vspace{0.2em}{\bfseries #1}\par\nopagebreak}
 """
 
@@ -135,21 +138,29 @@ def frontmatter(md: str) -> tuple[dict[str, str], str]:
 
 
 def cover(meta: dict[str, str]) -> str:
+    """Centred title page in the style of the Current Issues report: course block, title, author block."""
     d = dt.date.fromisoformat(meta["datum"])
-    rows = [("Name", meta["name"]), ("Student ID", meta["matrikel"]), ("Course", "Topics in Econometrics B"),
-            ("Lecturer", meta["dozent"]), ("Date", f"{d.day} {d.strftime('%B %Y')}")]
-    info = "\\\\\n".join(r"\textbf{" + k + ":} " + _plain(v) for k, v in rows)
-    return "\n".join([r"\thispagestyle{empty}", r"\vspace*{4cm}",
-                      r"{\raggedright\hyphenpenalty=10000\fontsize{24}{28}\selectfont\bfseries " + _plain(meta["titel"]) + r"\par}\vspace{0.6em}",
-                      r"{\Large " + _plain(meta["untertitel"]) + r"\par}\vspace{0.4em}",
-                      r"{\Large Final Report (Research Proposal), Topics in Econometrics B\par}\vspace{2.5cm}",
-                      r"\begin{flushleft}", info, r"\end{flushleft}", r"\newpage", r"\setcounter{page}{1}"])
+    title = _plain(meta["titel"]).replace(" Who ", r"\\ Who ", 1)
+    return "\n".join([
+        r"\begin{titlepage}", r"\centering", r"\vspace*{0.4cm}",
+        r"{\large Hitotsubashi University\par Autumn--Winter Term 2026\par}", r"\vspace{0.6cm}",
+        r"{\Large\bfseries Topics in Econometrics B\par}", r"{\large Lecturer: " + _plain(meta["dozent"]) + r"\par}",
+        r"\vspace{4.2cm}",
+        r"{\fontsize{22}{27}\selectfont\bfseries " + title + r"\par}", r"\vspace{0.4cm}",
+        r"{\Large " + _plain(meta["untertitel"]).replace(" in B2B", r"\\ in B2B", 1) + r"\par}", r"\vspace{0.3cm}",
+        r"{\large Final Report (Research Proposal)\par}",
+        r"\vfill",
+        r"{\large\bfseries " + _plain(meta["name"]) + r"\par}",
+        r"{\large Student ID: " + _plain(meta["matrikel"]) + r"\par}", r"\vspace{0.4cm}",
+        r"{\large " + f"{d.day} {d.strftime('%B %Y')}" + r"\par}",
+        r"\vspace*{0.4cm}", r"\end{titlepage}", r"\setcounter{page}{1}",
+        r"{\Large\bfseries " + _plain(meta["titel"]) + r"\par}", r"\vspace{4pt}"])
 
 
 def to_tex(text_md: str, appendix_md: str) -> str:
     meta, body = frontmatter(text_md)
     main, refs = body.split("\n## References", 1)
-    tex = [PREAMBLE % {"title": meta["titel"], "spread": LINE_SPREAD}, r"\begin{document}", cover(meta)]
+    tex = [PREAMBLE % {"title": meta["titel"], "spread": LINE_SPREAD, "margin": MARGIN, "parskip": PARSKIP, "secskip": SECSKIP}, r"\begin{document}", cover(meta)]
     tex += blocks_to_tex(main)
     tex += [r"\newpage", r"\sect{References}",
             r"\begingroup\setlength{\parindent}{-1.2em}\setlength{\leftskip}{1.2em}\setlength{\parskip}{0.15em}"]
