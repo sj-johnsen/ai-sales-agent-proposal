@@ -6,8 +6,8 @@ Author: Simon Jensen (student ID 2226237U).
 This repository holds the code behind the power calculation and the Monte Carlo check of the proposal
 [`2226237U_simon_jensen.pdf`](2226237U_simon_jensen.pdf). The proposal plans a field experiment at four B2B start-ups:
 prospect accounts are randomized 1:3 between an autonomous, disclosed AI agent (e-mail only) and an AI-assisted
-business development associate (BDA) who works as usual. The primary outcome is a booked meeting within 30 days of
-first contact.
+business development associate (BDA) who works as usual. The primary outcome is a booked meeting within 45 days of
+the account's batch date.
 
 **No experiment has been run.** The simulation contains no estimates of the agent's effect. It only checks that the
 planned estimator keeps its size, covers the true effect and reaches the power the analytical calculation promises.
