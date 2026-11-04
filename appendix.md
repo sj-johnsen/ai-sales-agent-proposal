@@ -29,12 +29,13 @@ and the largest detectable fall is found the same way for $p_1 < p_0$.
 | 6 | 7,200 | 21,600 | +28% / −26% | +25% / −23% | +22% / −21% |
 | 8 | 9,600 | 28,800 | +24% / −22% | +21% / −20% | +19% / −18% |
 
-**Table A3.** Detectable rise / fall by the BDAs' pace (four start-ups, 12 weeks, 1:3, $p_0 = 2.5$%). The pace is measured in the pilot and sets the size of the weekly batches.
+**Table A3.** Detectable rise / fall by the BDAs' pace (four start-ups, 12 weeks, 1:3, $p_0 = 2.5$%). The pace is measured in the pilot and sets the size of the weekly batches; the design plans with 85 to 100 (bold).
 
 | New accounts per BDA and week | Human accounts | Agent accounts | Detectable rise / fall |
 | ---: | ---: | ---: | ---: |
 | 50 | 2,400 | 7,200 | +43% / −39% |
 | 75 | 3,600 | 10,800 | +35% / −32% |
+| **85** | **4,080** | **12,240** | **+33% / −30%** |
 | **100** | **4,800** | **14,400** | **+30% / −28%** |
 | 150 | 7,200 | 21,600 | +25% / −23% |
 | 200 | 9,600 | 28,800 | +21% / −20% |

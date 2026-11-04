@@ -20,7 +20,7 @@ from pypdf import PdfReader
 HERE = Path(__file__).parent
 PDF_NAME = "2226237U_simon_jensen"          # filename required by the assignment: studentid_firstname_lastname.pdf
 MAX_PAGES = 3
-LINE_SPREAD = "1.15"
+LINE_SPREAD = "1.12"
 MARGIN = "2.5cm"                             # layout of the Current Issues report (01-news-analysis)
 PARSKIP = "5pt"
 SECSKIP = "10pt"                         # more air than single spacing ("preferably double-spaced"), still three pages
@@ -112,6 +112,8 @@ def blocks_to_tex(md: str) -> list[str]:
             tex.append(r"\sect{" + inline(b[3:]) + "}")
         elif b.startswith("# "):
             tex.append(r"\sect{" + inline(b[2:]) + "}")
+        elif b.startswith('"') and b.endswith('"'):            # the research question, set apart and centred
+            tex.append(r"{\centering " + inline(" ".join(b.split())) + r"\par}")
         elif b.startswith("$$"):
             tex.append(r"\begin{equation*}" + "\n" + _math(b.strip("$").strip()) + "\n" + r"\end{equation*}")
         elif b.startswith("**Table"):

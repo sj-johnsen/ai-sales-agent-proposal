@@ -78,7 +78,7 @@ if __name__ == "__main__":
         print(f"| {f} | {n_c:,} | {n_t:,} | " + " | ".join(cells) + " |")
     print(f"\nTable A3: MDE by BDA pace ({FIRMS} firms, {WEEKS} weeks, 1:{RATIO}, p0 = 2.5 %)")
     print("| new accounts per BDA and week | human accounts | agent accounts | MDE |")
-    for pw in (50, 75, 100, 150, 200):
+    for pw in (50, 75, 85, 100, 150, 200):
         n_c, n_t, up, down = design(FIRMS, per_week=pw)
         print(f"| {pw} | {n_c:,} | {n_t:,} | +{up/0.025-1:.0%} / {down/0.025-1:.0%} |")
     n_c, n_t, up, down = design(FIRMS)
