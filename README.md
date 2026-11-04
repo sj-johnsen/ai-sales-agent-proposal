@@ -3,8 +3,7 @@
 Final report (research proposal), *Topics in Econometrics B* (Prof. Masayuki Sawada), Hitotsubashi University, Autumn 2026.
 Author: Simon Jensen (student ID 2226237U).
 
-This repository holds the code behind the power calculation and the Monte Carlo check of the proposal
-[`2226237U_simon_jensen.pdf`](2226237U_simon_jensen.pdf). The proposal plans a field experiment at four B2B start-ups:
+This repository is the online appendix of the proposal [`2226237U_simon_jensen.pdf`](2226237U_simon_jensen.pdf), cited there as Jensen (2026). It holds the methodology tables ([`appendix.md`](appendix.md)) and the code behind the power calculation and the Monte Carlo check. The proposal plans a field experiment at four B2B start-ups:
 prospect accounts are randomized 1:3 between an autonomous, disclosed AI agent (e-mail only) and an AI-assisted
 business development associate (BDA) who works as usual. The primary outcome is a booked meeting within 45 days of
 the account's batch date.
