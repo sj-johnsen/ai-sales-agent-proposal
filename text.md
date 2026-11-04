@@ -22,7 +22,7 @@ Most field evidence on generative AI at work answers a neighboring question. An 
 
 The closest study compares human and automated sales agents directly. In a randomized field experiment (n = 325) and an online experiment (n = 408), Adam et al. (2023) find that customers are more willing to show initial interest to a human sales agent, but more willing to leave their contact details with an automated one. As far as its abstract reports, it never compares the automated agent with a human who does the whole job with AI. Both decisions it studies come before a meeting. Who makes the contact also matters in its own right: in outbound sales calls, disclosing that the caller was a chatbot cut purchase rates by 79.7% (Luo et al., 2019).
 
-Tannenbaum (2026) randomizes a disclosed chat agent against live-chat staff on retail and hospitality sites, not an AI-assisted BDA on booked meetings across start-ups. This proposal fills that gap, with Adam et al. (2023) as its benchmark.
+Tannenbaum (2026) randomizes a disclosed chat agent against live-chat staff on retail and hospitality sites, not an AI-assisted BDA on booked meetings across start-ups. This proposal would fill that gap, with Adam et al. (2023) as its benchmark.
 
 ## 3. Data: Where and How
 
@@ -75,8 +75,6 @@ Bruhn, M., & McKenzie, D. (2009). In pursuit of balance: Randomization in practi
 Brynjolfsson, E., Li, D., & Raymond, L. (2025). Generative AI at work. *The Quarterly Journal of Economics, 140*(2), 889-942. https://doi.org/10.1093/qje/qjae044
 
 Frangakis, C. E., & Rubin, D. B. (2002). Principal stratification in causal inference. *Biometrics, 58*(1), 21-29. https://doi.org/10.1111/j.0006-341X.2002.00021.x
-
-Ibragimov, R., & Müller, U. K. (2010). t-Statistic based correlation and heterogeneity robust inference. *Journal of Business & Economic Statistics, 28*(4), 453-468. https://doi.org/10.1198/jbes.2009.08046
 
 Jensen, S. (2026). *ai-sales-agent-proposal: Code and appendix for a research proposal* [Computer software]. GitHub. https://github.com/sj-johnsen/ai-sales-agent-proposal
 

@@ -70,3 +70,9 @@ Under no effect, the main test rejects in 6.2% and the start-up test in 4.5% of 
 | 3–14 | Main experiment | 12 weekly batches per start-up, drawn and randomized by a researcher at the pace measured in the pilot (100 BDA and 300 agent accounts at the planned pace). Agent updates only between batches, logged. If a BDA leaves, that start-up's later weeks are dropped, so τ stays the effect for the BDAs who remain. |
 | 15–18 | Outcome closure | 30-day booking windows of the last batch close; meetings held are verified. |
 | 19–20 | Analysis | Pre-specified estimators of Section 5 and the start-up test of Appendix B. |
+
+## References for the Appendix
+
+Other works cited here are listed in the references of the main text.
+
+Ibragimov, R., & Müller, U. K. (2010). t-Statistic based correlation and heterogeneity robust inference. *Journal of Business & Economic Statistics, 28*(4), 453-468. https://doi.org/10.1198/jbes.2009.08046
