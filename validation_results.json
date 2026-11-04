@@ -1,0 +1,75 @@
+{
+  "design": {
+    "firms": 4,
+    "weeks": 12,
+    "per_bda_week": 100,
+    "ratio": 3,
+    "human_accounts": 4800,
+    "agent_accounts": 14400,
+    "p0": 0.025,
+    "mde_up": 0.03255132522686144,
+    "mde_down": 0.017966200727906154,
+    "mde_up_rel": 0.30205300907445753,
+    "mde_down_rel": -0.28135197088375385
+  },
+  "monte_carlo": {
+    "replications": 1000,
+    "seed": 20261102,
+    "sd_firm_baseline_logit": 0.3,
+    "population_mean_p0": 0.02506039831914792,
+    "scenarios": [
+      {
+        "scenario": "no effect, homogeneous",
+        "r_mean": 0.0,
+        "r_sd": 0.0,
+        "true_pate": 0.0,
+        "mean_true_sate": 0.0,
+        "mean_tau_hat": -9.008718761060269e-05,
+        "bias_vs_sate": -9.008718761060269e-05,
+        "reject_sate_test": 0.062,
+        "reject_pate_test": 0.045,
+        "coverage_sate_ci": 0.938,
+        "coverage_pate_ci": 0.955
+      },
+      {
+        "scenario": "no average effect, heterogeneous",
+        "r_mean": 0.0,
+        "r_sd": 0.1,
+        "true_pate": 0.0,
+        "mean_true_sate": 1.927603565052513e-05,
+        "mean_tau_hat": 4.065606602613007e-05,
+        "bias_vs_sate": 2.1380030375604913e-05,
+        "reject_sate_test": 0.088,
+        "reject_pate_test": 0.05,
+        "coverage_sate_ci": 0.949,
+        "coverage_pate_ci": 0.95
+      },
+      {
+        "scenario": "effect at the MDE, homogeneous",
+        "r_mean": 0.30205300907445753,
+        "r_sd": 0.0,
+        "true_pate": 0.007569568720903108,
+        "mean_true_sate": 0.007574540044987225,
+        "mean_tau_hat": 0.007499917403052772,
+        "bias_vs_sate": -7.462264193445394e-05,
+        "reject_sate_test": 0.779,
+        "reject_pate_test": 0.417,
+        "coverage_sate_ci": 0.934,
+        "coverage_pate_ci": 0.956
+      },
+      {
+        "scenario": "effect at the MDE, heterogeneous",
+        "r_mean": 0.30205300907445753,
+        "r_sd": 0.1,
+        "true_pate": 0.007569568720903108,
+        "mean_true_sate": 0.007462976627198959,
+        "mean_tau_hat": 0.007319291508001069,
+        "bias_vs_sate": -0.0001436851191978906,
+        "reject_sate_test": 0.762,
+        "reject_pate_test": 0.343,
+        "coverage_sate_ci": 0.948,
+        "coverage_pate_ci": 0.955
+      }
+    ]
+  }
+}
