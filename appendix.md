@@ -66,9 +66,9 @@ Under no effect, the main test rejects in 6.2% and the start-up test in 4.5% of 
 | Weeks | Phase | Content |
 | :--- | :--- | :--- |
 | before 1 | Warm-up | Agent and BDA mailboxes are warmed up on separate domains, capped at an assumed 40 cold e-mails a day each; at an assumed four e-mails per account, the agent's 300 new accounts a week need six mailboxes per start-up and the BDA's 100 need two. Authentication (SPF, DKIM, DMARC) is set up. |
-| 1–2 | Pilot | Normal BDA pace at 1:3 in each start-up to test logging and deliverability and measure the BDA's pace, which then fixes the batch size, and see how much cost per account varies across weeks. Analysis code registered on the AEA RCT Registry before the main phase. Pilot data are not used in the main analysis. |
+| 1–2 | Pilot | Normal BDA pace at 1:3 in each start-up to test logging and deliverability, to measure the BDA's pace, which then fixes the batch size, and to see how much cost per account varies across weeks. Analysis code registered on the AEA RCT Registry before the main phase. Pilot data are not used in the main analysis. |
 | 3–14 | Main experiment | 12 weekly batches per start-up, drawn and randomized by a researcher at the pace measured in the pilot (100 BDA and 300 agent accounts at the planned pace). Agent updates only between batches, logged. If a BDA leaves, that start-up's later weeks are dropped, so τ stays the effect for the BDAs who remain. |
-| 15–18 | Outcome closure | 30-day booking windows of the last batch close; meetings held are verified. |
+| 15–21 | Outcome closure | 45-day booking windows of the last batch close; meetings held are verified. |
 | 19–20 | Analysis | Pre-specified estimators of Section 5 and the start-up test of Appendix B. |
 
 ## References for the Appendix
